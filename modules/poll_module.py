@@ -10,7 +10,7 @@ class PollModule(Module):
 
     async def on_message(self, msg):
         if msg.content.startswith('!poll'):
-            prompt = "On the topic of AI and technology, a divisive question one could ask a group of technologists would be worded something like:"
+            prompt = "On the topic of AI and technology, a divisive agree or disagree question one could ask a group of technologists would be worded something like:"
             completion = self.generate_completion(prompt)
             poll_question = self.extract_poll_question(completion)
             await self.send_poll(msg.channel, poll_question)
