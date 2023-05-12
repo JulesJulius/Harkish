@@ -27,7 +27,7 @@ class PollModule(Module):
         return response.choices[0].text.strip()
 
     def extract_poll_question(self, completion):
-        question = completion[:completion.rfind('?')+1]
+        question = completion.split("\n\n")[0]
         return question
 
     async def send_poll(self, channel, question):
